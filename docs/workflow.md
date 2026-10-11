@@ -27,7 +27,7 @@
 保证顺序，如：
 
 ```
-manuscript/00-frontmatter.md     # 扉页、出版信息、序言
+manuscript/00-frontmatter.md     # 电子版说明与免责声明（不进目录）
 manuscript/01-前言.md
 manuscript/02-第一章-xxx.md
 ...
@@ -48,7 +48,7 @@ pandoc 按文件名排序合并，构建时自动生成目录。
 
 一句话：凡原书目录里能看到的条目，用 `#`/`##`/`###`；目录里没有的节内小标题一律 `####` 起。
 
-扉页（`00-frontmatter.md` 的评语与 CIP 版权信息）标题加 `{.unlisted}`，
+电子版说明与免责声明（`00-frontmatter.md`）标题加 `{.unlisted}`，
 使其**不进**电子书目录——原书纸质目录同样不列扉页与版权页。
 
 ### 脚注

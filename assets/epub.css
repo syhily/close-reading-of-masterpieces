@@ -164,6 +164,23 @@ blockquote, .xuanwen {
   color: #222;
 }
 
+/* ---------- 电子版说明与免责声明(居中卡片) ---------- */
+.notice {
+  max-width: 32em;
+  margin: 3em auto 0;
+  padding: 1.6em 1.8em;
+  border: 1px solid #c8c4ba;
+  border-radius: 8px;
+  background: #f9f8f5;
+}
+.notice p {
+  text-indent: 0;
+  font-size: 0.92em;
+  color: #555;
+  line-height: 1.9;
+  margin: 0.8em 0;
+}
+
 /* 选文中的标题（作品名、作者）用黑体 */
 blockquote h1, blockquote h2, blockquote h3, blockquote h4,
 .xuanwen h1, .xuanwen h2, .xuanwen h3, .xuanwen h4,
