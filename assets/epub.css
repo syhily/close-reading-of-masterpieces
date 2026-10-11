@@ -43,6 +43,88 @@ h2 {
 /* 节内小标题（如「问题8」）：原书为靠左黑体 */
 h3 { font-size: 1.1em; }
 
+/* ========== 扉页（pandoc 依据 metadata 生成的标题页） ========== */
+
+.titlepage {
+  text-align: center;
+  margin: 10% 8% 0;
+  page-break-after: always;
+}
+
+.titlepage h1.title {
+  font-family: "PingFang SC", "Heiti SC", "Source Han Sans SC", "Source Han Sans CN",
+    "Noto Sans CJK SC", "Noto Sans SC", "Microsoft YaHei", "SimHei", sans-serif;
+  font-weight: normal;
+  font-size: 2em;
+  letter-spacing: 0.14em;
+  margin: 0 0 1.2em;
+  page-break-before: avoid;
+  text-indent: 0;
+}
+
+/* 书名与副题之间的装饰分隔线 */
+.titlepage h1.title::after {
+  content: "";
+  display: block;
+  width: 4em;
+  margin: 0.9em auto 0;
+  border-bottom: 1px solid #999;
+}
+
+.titlepage .subtitle {
+  font-family: "Songti SC", "STSong", "Source Han Serif SC", "Source Han Serif CN",
+    "Noto Serif CJK SC", "Noto Serif SC", "SimSun", serif;
+  font-size: 1.05em;
+  letter-spacing: 0.12em;
+  color: #333;
+  margin: 0;
+  text-indent: 0;
+}
+
+.titlepage .author {
+  font-family: "Songti SC", "STSong", "Source Han Serif SC", "Source Han Serif CN",
+    "Noto Serif CJK SC", "Noto Serif SC", "SimSun", serif;
+  font-size: 1.05em;
+  letter-spacing: 0.35em;
+  margin: 2.6em 0 0;
+  text-indent: 0;
+}
+
+.titlepage .author::after {
+  content: "　著";
+  letter-spacing: 0.35em;
+}
+
+.titlepage .publisher {
+  font-family: "STFangsong", "FangSong", "FangSong_GB2312", "AR PL FangSong2 GB",
+    "Songti SC", "STSong", "SimSun", serif;
+  font-size: 0.95em;
+  letter-spacing: 0.22em;
+  color: #444;
+  margin: 3.2em 0 0;
+  text-indent: 0;
+}
+
+.titlepage .date {
+  font-family: "Songti SC", "STSong", "Source Han Serif SC", "Source Han Serif CN",
+    "Noto Serif CJK SC", "Noto Serif SC", "SimSun", serif;
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  color: #555;
+  margin: 0.3em 0 0;
+  text-indent: 0;
+}
+
+.titlepage .rights {
+  font-family: "Songti SC", "STSong", "Source Han Serif SC", "Source Han Serif CN",
+    "Noto Serif CJK SC", "Noto Serif SC", "SimSun", serif;
+  font-size: 0.75em;
+  line-height: 1.7;
+  color: #8a8a8a;
+  margin: 4.5em 0 0;
+  text-indent: 0;
+}
+
 /* ========== 段落 ========== */
 
 p {

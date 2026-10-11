@@ -23,7 +23,6 @@ pandoc metadata.yaml "${chapters[@]}" \
   --from markdown+footnotes+inline_notes+fenced_divs+smart \
   --to epub3 \
   --css assets/epub.css \
-  --toc --toc-depth=3 \
   "${cover_opt[@]}" \
   -o "build/名作细读.epub"
 
