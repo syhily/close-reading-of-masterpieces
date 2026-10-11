@@ -1,58 +1,112 @@
-/* 《名作细读》EPUB 样式：中文文学评论类图书 */
+/* 《名作细读》EPUB 样式：中文文学评论类图书
+ *
+ * 跨平台字体策略（EPUB 不内嵌字体，依赖各平台系统字体回退）：
+ *   宋体 = macOS/iOS: Songti SC, STSong | Android/Linux: Source Han Serif, Noto Serif CJK | Windows: 宋体 SimSun
+ *   黑体 = macOS/iOS: PingFang SC, Heiti SC | Android/Linux: Source Han Sans, Noto Sans CJK | Windows: 微软雅黑, 黑体 SimHei
+ *   楷体 = macOS/iOS: Kaiti SC, STKaiti | Windows: KaiTi | Linux: AR PL KaitiM（Android 多数无楷体，回退宋体）
+ *   仿宋 = macOS/iOS: STFangsong | Windows: FangSong | Linux: AR PL FangSong2
+ */
 
 body {
-  font-family: serif;
+  /* 正文：宋体 */
+  font-family: "Songti SC", "STSong", "Source Han Serif SC", "Source Han Serif CN",
+    "Noto Serif CJK SC", "Noto Serif SC", "SimSun", "NSimSun", serif;
   line-height: 1.6;
   margin: 0 5%;
+  text-align: justify;
 }
 
-h1, h2, h3 {
-  font-family: sans-serif;
+/* ========== 标题：黑体 ========== */
+
+h1, h2, h3, h4, nav, .heiti {
+  font-family: "PingFang SC", "Heiti SC", "Source Han Sans SC", "Source Han Sans CN",
+    "Noto Sans CJK SC", "Noto Sans SC", "Microsoft YaHei", "SimHei", sans-serif;
   line-height: 1.4;
   page-break-after: avoid;
 }
 
 h1 {
   text-align: center;
+  font-size: 1.5em;
   margin: 2em 0 1.5em;
   page-break-before: always;
 }
 
-/* 正文段落：首行缩进两字符 */
+h2 { font-size: 1.25em; }
+h3 { font-size: 1.1em; }
+
+/* ========== 段落 ========== */
+
 p {
   text-indent: 2em;
   margin: 0.3em 0;
   text-align: justify;
 }
 
-/* 标题后首段不缩进 */
-h1 + p, h2 + p, h3 + p {
-  text-indent: 0;
-}
-
-/* 选文（作品原文引用）：块引用 */
-blockquote {
-  margin: 0.8em 1.5em;
-  padding: 0 0.8em;
-  border-left: 0.15em solid #999;
-  color: #333;
-}
-
-blockquote p {
+h1 + p, h2 + p, h3 + p,
+blockquote p:first-child, .xuanwen p:first-child {
   text-indent: 2em;
 }
 
-/* 选文容器（::: {.xuanwen} 写法） */
-.xuanwen {
-  margin: 0.8em 1.5em;
-  padding: 0.4em 0.8em;
-  border-left: 0.15em solid #999;
-  background: #f7f7f7;
+/* 加粗：黑体（中文排版中加粗对应黑体） */
+strong, b {
+  font-family: "PingFang SC", "Heiti SC", "Source Han Sans SC", "Source Han Sans CN",
+    "Noto Sans CJK SC", "Noto Sans SC", "Microsoft YaHei", "SimHei", sans-serif;
+  font-weight: bold;
 }
 
-/* 脚注（EPUB3 弹出式注释） */
+/* 斜体标记：中文不倾斜，改排楷体 */
+em, i {
+  font-style: normal;
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", "KaiTi_GB2312", "DFKai-SB",
+    "AR PL KaitiM GB", "AR PL KaitiM Big5", "Songti SC", "STSong",
+    "Source Han Serif SC", "Noto Serif CJK SC", "SimSun", serif;
+}
+
+/* ========== 选文（作品原文引用）：楷体 ========== */
+
+blockquote, .xuanwen {
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", "KaiTi_GB2312", "DFKai-SB",
+    "AR PL KaitiM GB", "AR PL KaitiM Big5", "Songti SC", "STSong",
+    "Source Han Serif SC", "Noto Serif CJK SC", "SimSun", serif;
+  margin: 0.8em 1em;
+  padding: 0.2em 0.9em;
+  border-left: 0.15em solid #999;
+  color: #222;
+}
+
+.xuanwen {
+  background: #f7f7f7;
+  padding: 0.4em 0.9em;
+}
+
+/* 选文中的标题（作品名、作者）用黑体 */
+blockquote h1, blockquote h2, blockquote h3, blockquote h4,
+.xuanwen h1, .xuanwen h2, .xuanwen h3, .xuanwen h4,
+blockquote strong, .xuanwen strong {
+  font-family: "PingFang SC", "Heiti SC", "Source Han Sans SC", "Source Han Sans CN",
+    "Noto Sans CJK SC", "Noto Sans SC", "Microsoft YaHei", "SimHei", sans-serif;
+}
+
+/* 诗歌等需保留换行的选文 */
+.poem p, blockquote pre {
+  text-indent: 0;
+  font-family: "Kaiti SC", "STKaiti", "KaiTi", "KaiTi_GB2312", "DFKai-SB",
+    "AR PL KaitiM GB", "Songti SC", "STSong", "SimSun", serif;
+}
+
+/* ========== 仿宋（扉页信息、题辞、出版说明等） ========== */
+
+.fangsong, .frontmatter-info {
+  font-family: "STFangsong", "FangSong", "FangSong_GB2312", "AR PL FangSong2 GB",
+    "Songti SC", "STSong", "SimSun", serif;
+}
+
+/* ========== 脚注 ========== */
+
 .footnote, .footnotes {
   font-size: 0.85em;
+  line-height: 1.5;
 }
 
 .footnotes {
@@ -61,14 +115,26 @@ blockquote p {
   padding-top: 0.5em;
 }
 
+.footnotes p {
+  text-indent: 0;
+  margin: 0.2em 0;
+}
+
 a.footnote-ref, a.footnote-back {
   text-decoration: none;
   vertical-align: super;
   font-size: 0.75em;
 }
 
-/* 诗歌等需要保留换行的选文 */
-.poem p, blockquote pre {
-  text-indent: 0;
-  font-family: serif;
+/* ========== 其他 ========== */
+
+code, pre {
+  font-family: "SF Mono", "Menlo", "Consolas", "Source Han Sans SC",
+    "Noto Sans CJK SC", "Microsoft YaHei", monospace;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 1.5em 20%;
 }
