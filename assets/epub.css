@@ -26,13 +26,21 @@ h1, h2, h3, h4, nav, .heiti {
 }
 
 h1 {
+  /* 章扉页：原书为整页装饰页，EPUB 中以居中黑体大标题 + 另起一页表示 */
   text-align: center;
   font-size: 1.5em;
-  margin: 2em 0 1.5em;
+  margin: 4em 0 2em;
   page-break-before: always;
 }
 
-h2 { font-size: 1.25em; }
+/* 节标题（如「玉楼春 宋祁」「前言：夏天为什么缺乏诗意经典」）：原书为居中黑体 */
+h2 {
+  font-size: 1.25em;
+  text-align: center;
+  margin: 1.2em 0 0.8em;
+}
+
+/* 节内小标题（如「问题8」）：原书为靠左黑体 */
 h3 { font-size: 1.1em; }
 
 /* ========== 段落 ========== */
@@ -63,21 +71,15 @@ em, i {
     "Source Han Serif SC", "Noto Serif CJK SC", "SimSun", serif;
 }
 
-/* ========== 选文（作品原文引用）：楷体 ========== */
+/* ========== 选文（作品原文引用）：楷体缩进块，不加边框（贴近原书版式） ========== */
 
 blockquote, .xuanwen {
   font-family: "Kaiti SC", "STKaiti", "KaiTi", "KaiTi_GB2312", "DFKai-SB",
     "AR PL KaitiM GB", "AR PL KaitiM Big5", "Songti SC", "STSong",
     "Source Han Serif SC", "Noto Serif CJK SC", "SimSun", serif;
-  margin: 0.8em 1em;
-  padding: 0.2em 0.9em;
-  border-left: 0.15em solid #999;
+  margin: 0.6em 1em;
+  padding: 0 0.5em;
   color: #222;
-}
-
-.xuanwen {
-  background: #f7f7f7;
-  padding: 0.4em 0.9em;
 }
 
 /* 选文中的标题（作品名、作者）用黑体 */
@@ -88,11 +90,33 @@ blockquote strong, .xuanwen strong {
     "Noto Sans CJK SC", "Noto Sans SC", "Microsoft YaHei", "SimHei", sans-serif;
 }
 
-/* 诗歌等需保留换行的选文 */
-.poem p, blockquote pre {
-  text-indent: 0;
+/* 诗歌选文：pandoc 行块（| 开头），每句一行、整体左缩进（对应原书律诗/绝句版式） */
+.line-block, .poem {
   font-family: "Kaiti SC", "STKaiti", "KaiTi", "KaiTi_GB2312", "DFKai-SB",
-    "AR PL KaitiM GB", "Songti SC", "STSong", "SimSun", serif;
+    "AR PL KaitiM GB", "AR PL KaitiM Big5", "Songti SC", "STSong",
+    "Source Han Serif SC", "Noto Serif CJK SC", "SimSun", serif;
+  margin: 0.6em 0 0.6em 4em;
+}
+
+.line-block .line, .poem p, blockquote pre {
+  text-indent: 0;
+  margin: 0.15em 0;
+}
+
+/* 着重号：原书在字下加点（如“谁知”）。不支持 text-emphasis 的阅读器回退为黑体 */
+.zhuozhong {
+  text-emphasis: dot;
+  text-emphasis-position: under;
+  -webkit-text-emphasis: dot;
+  -webkit-text-emphasis-position: under;
+  font-family: "PingFang SC", "Heiti SC", "Source Han Sans SC", "Source Han Sans CN",
+    "Noto Sans CJK SC", "Noto Sans SC", "Microsoft YaHei", "SimHei", sans-serif;
+}
+
+/* 落款/署名（如“——读者”）：右对齐 */
+.qianming {
+  text-align: right;
+  text-indent: 0;
 }
 
 /* ========== 仿宋（扉页信息、题辞、出版说明等） ========== */
