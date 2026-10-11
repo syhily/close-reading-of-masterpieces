@@ -1,0 +1,74 @@
+/* 《名作细读》EPUB 样式：中文文学评论类图书 */
+
+body {
+  font-family: serif;
+  line-height: 1.6;
+  margin: 0 5%;
+}
+
+h1, h2, h3 {
+  font-family: sans-serif;
+  line-height: 1.4;
+  page-break-after: avoid;
+}
+
+h1 {
+  text-align: center;
+  margin: 2em 0 1.5em;
+  page-break-before: always;
+}
+
+/* 正文段落：首行缩进两字符 */
+p {
+  text-indent: 2em;
+  margin: 0.3em 0;
+  text-align: justify;
+}
+
+/* 标题后首段不缩进 */
+h1 + p, h2 + p, h3 + p {
+  text-indent: 0;
+}
+
+/* 选文（作品原文引用）：块引用 */
+blockquote {
+  margin: 0.8em 1.5em;
+  padding: 0 0.8em;
+  border-left: 0.15em solid #999;
+  color: #333;
+}
+
+blockquote p {
+  text-indent: 2em;
+}
+
+/* 选文容器（::: {.xuanwen} 写法） */
+.xuanwen {
+  margin: 0.8em 1.5em;
+  padding: 0.4em 0.8em;
+  border-left: 0.15em solid #999;
+  background: #f7f7f7;
+}
+
+/* 脚注（EPUB3 弹出式注释） */
+.footnote, .footnotes {
+  font-size: 0.85em;
+}
+
+.footnotes {
+  border-top: 1px solid #ccc;
+  margin-top: 1.5em;
+  padding-top: 0.5em;
+}
+
+a.footnote-ref, a.footnote-back {
+  text-decoration: none;
+  vertical-align: super;
+  font-size: 0.75em;
+}
+
+/* 诗歌等需要保留换行的选文 */
+.poem p, blockquote pre {
+  text-indent: 0;
+  font-family: serif;
+}
