@@ -19,10 +19,20 @@ for c in assets/cover.jpg assets/cover.png; do
   fi
 done
 
+# Clearview 等阅读器的 CSS 预处理器会被注释中的字符（如 |）中断并吞掉后续规则，
+# 构建时剥离注释后再交给 pandoc；assets/epub.css 保留完整注释供维护
+stripped_css="build/epub.stripped.css"
+perl -0777 -pe 's{/\*.*?\*/}{}gs' assets/epub.css > "$stripped_css"
+
 pandoc metadata.yaml "${chapters[@]}" \
   --from markdown+footnotes+inline_notes+fenced_divs+smart \
   --to epub3 \
-  --css assets/epub.css \
+  --split-level=2 \
+  --lua-filter=scripts/ascii-heading-ids.lua \
+  --lua-filter=scripts/chapter-titlepage.lua \
+  --lua-filter=scripts/poem-stanzas.lua \
+  --lua-filter=scripts/pangu.lua \
+  --css "$stripped_css" \
   "${cover_opt[@]}" \
   -o "build/名作细读.epub"
 
