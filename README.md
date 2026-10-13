@@ -27,7 +27,7 @@
 
 每次打 tag 都会由 GitHub Actions 自动构建 EPUB 并发布到 Releases：
 
-- [下载最新版 EPUB](https://github.com/syhily/close-reading-of-masterpieces/releases/latest)
+- [下载最新版 EPUB](https://github.com/syhily/close-reading-of-masterpieces/releases/latest/download/close-reading-of-masterpieces.epub)（直链，始终指向最新 Release）
 - [查看全部版本](https://github.com/syhily/close-reading-of-masterpieces/releases)
 
 ## 构建
