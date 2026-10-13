@@ -377,6 +377,37 @@ h4 {
   margin: 1.3em 0 0.4em;
 }
 
+/* ---------- 重点阐释作品栏目（第七章各节开头）：左侧粗竖线 + 黑体标题 +
+   作品条目一行一个（::: {.zhongdian} 包裹，条目用无序列表） */
+.zhongdian {
+  border-left: 3px solid #444;
+  padding: 0.1em 0 0.1em 1.2em;
+  margin: 1em 0 1.5em;
+  font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica,
+    "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB",
+    "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN",
+    "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei",
+    "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+}
+.zhongdian p {
+  text-indent: 0;
+  margin: 0.3em 0;
+}
+.zhongdian ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.4em 0 0.2em;
+}
+.zhongdian li {
+  margin: 0.12em 0;
+}
+/* 栏目内作者名（[作者]{.zuozhe}）：楷体，还原标题用的缩小/加粗/间距 */
+.zhongdian .zuozhe {
+  font-size: 1em;
+  font-weight: normal;
+  margin-left: 0;
+}
+
 /* ---------- 选文（作品原文引用）：楷体缩进块，不加边框（贴近原书版式） ---------- */
 
 blockquote, .xuanwen {
