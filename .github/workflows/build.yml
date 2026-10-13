@@ -19,8 +19,11 @@ jobs:
       - name: Build EPUB
         run: bash scripts/build.sh
 
+      - name: Rename to ASCII（GitHub Release 会把非 ASCII 资产名改成 default.epub）
+        run: cp build/*.epub "build/close-reading-of-masterpieces-${GITHUB_REF_NAME}.epub"
+
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          files: build/*.epub
+          files: build/close-reading-of-masterpieces-*.epub
           generate_release_notes: true
