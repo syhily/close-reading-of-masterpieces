@@ -42,7 +42,8 @@ pandoc 按文件名排序合并，构建时自动生成目录；`--split-level=2
 
 - `scripts/ascii-heading-ids.lua`：标题锚点改写为 ASCII id（`sec-N`），
   保证各阅读器里目录链接可跳转。
-- `scripts/poem-stanzas.lua`：`::: {.poem}` 诗块包成
+- `scripts/poem-stanzas.lua`：行块里的空行（裸 `|`）视为诗节分界，拆成多个
+  行块形成分段；`::: {.poem}` 诗块包成
   `.poem > .poem-inner > .stanza > .line-block` 结构，实现整诗居中、
   诗节垂直堆叠且共享左边缘。
 
